@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ReversingController {
+public class ReversingController{
     @GetMapping("/reverse")
     public String reverser(String text) {
         return new StringBuilder(text).reverse().toString();
