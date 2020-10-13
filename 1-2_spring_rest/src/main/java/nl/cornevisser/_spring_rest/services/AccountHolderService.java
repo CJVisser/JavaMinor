@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Service
 public class AccountHolderService {
-
     private AccountHolderRepository repository;
     private BankAccountRepository bankAccountRepository;
 
@@ -48,14 +47,10 @@ public class AccountHolderService {
     }
 
     public void updateAccount(AccountHolder accountHolder){
-        repository.update(accountHolder);
+        repository.save(accountHolder);
     }
 
     public void deleteAccount(AccountHolder accountHolder){
         repository.delete(accountHolder);
-    }
-
-    public void deleteAccount(Long id){
-        repository.delete(id);
     }
 }

@@ -8,46 +8,22 @@ import java.util.HashMap;
 import java.util.List;
 
 @Repository
-public class AccountHolderRepository {
+public interface AccountHolderRepository extends CrudRepository<AccountHolder, Long> {
+    @Override
+    <S extends AccountHolder> S save(S entity);
 
-    public static final HashMap<Long, AccountHolder> accountHolders = new HashMap<>();
+    @Override
+    AccountHolder findOne(Long primaryKey);
 
-    public void save(AccountHolder accountHolder) {
-        accountHolders.putIfAbsent(accountHolder.getId(),accountHolder);
-    }
+    @Override
+    Iterable<AccountHolder> findAll();
 
-    public AccountHolder findOne(Long primaryKey) {
-        return accountHolders.getOrDefault(primaryKey,null);
-    }
+    @Override
+    Long count();
 
-    public Iterable<AccountHolder> findAll() {
-        List<AccountHolder> accounts = new ArrayList<>();
-        accountHolders.forEach((aLong, accountHolder) -> accounts.add(accountHolder));
-        return accounts;
-    }
+    @Override
+    void delete(AccountHolder entity);
 
-    public Long count() {
-        return (long) accountHolders.size();
-    }
-
-    public void update(AccountHolder accountHolder){
-        accountHolders.put(accountHolder.getId(),accountHolder);
-    }
-
-    public void delete(AccountHolder accountHolder) {
-        delete(accountHolder.getId());
-    }
-
-    public void delete(Long id) {
-        accountHolders.remove(id);
-    }
-
-    public boolean exists(Long id) {
-        AccountHolder account = accountHolders.get(id);
-        if (account.isEmpty()){
-            return false;
-        }
-        return true;
-    }
-
+    @Override
+    boolean exists(Long primaryKey);
 }

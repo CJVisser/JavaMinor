@@ -59,7 +59,7 @@ public class AccountHolderController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void deleteAccountHolder(@PathVariable long id){
-        service.getAccountHolder(id).orElseThrow(AccountHolderExceptions::new);
-        service.deleteAccount(id);
+        AccountHolder accountHolder = service.getAccountHolder(id).orElseThrow(AccountHolderExceptions::new);
+        service.deleteAccount(accountHolder);
     }
 }
