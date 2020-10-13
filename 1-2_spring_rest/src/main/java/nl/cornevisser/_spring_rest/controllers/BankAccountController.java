@@ -48,7 +48,7 @@ public class BankAccountController {
         service.updateAccount(account);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("block/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void blockAccount(@PathVariable long id){

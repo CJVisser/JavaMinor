@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+assignment1_2,com.cornevisser.assignment1_2,DefaultReversingService,7,3,0,0,1,1,1,1,1,1
+assignment1_2,com.cornevisser.assignment1_2,StorageRepository,0,27,0,0,0,6,0,3,0,3
+assignment1_2,com.cornevisser.assignment1_2,StringService,20,13,2,0,5,4,2,2,1,2
+assignment1_2,com.cornevisser.assignment1_2,Assignment12Application,5,3,0,0,2,1,1,1,1,1
+assignment1_2,com.cornevisser.assignment1_2,ReversingController,12,3,0,0,2,1,2,1,2,1
+assignment1_2,com.cornevisser.assignment1_2,ReversingService,0,3,0,0,0,1,0,1,0,1
+assignment1_2,com.cornevisser.assignment1_2,CapsReversingService,6,0,0,0,2,0,2,0,2,0

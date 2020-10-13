@@ -4,9 +4,7 @@ import nl.cornevisser._spring_rest.repositories.AccountHolderRepository;
 import nl.cornevisser._spring_rest.repositories.BankAccountRepository;
 import nl.cornevisser._spring_rest.models.AccountHolder;
 import nl.cornevisser._spring_rest.models.BankAccount;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +16,9 @@ public class AccountHolderService {
     private AccountHolderRepository repository;
     private BankAccountRepository bankAccountRepository;
 
-    public AccountHolderService(AccountHolderRepository repository) {
+    public AccountHolderService(AccountHolderRepository repository, BankAccountRepository bankAccountRepository) {
         this.repository = repository;
+        this.bankAccountRepository = bankAccountRepository;
     }
 
     public List<AccountHolder> getAccountHolders() {
@@ -34,7 +33,6 @@ public class AccountHolderService {
         return optAccount;
     }
 
-    @ResponseStatus(HttpStatus.OK)
     public List<BankAccount> getBankAccounts(long id) {
         List<BankAccount> bankAccounts = new ArrayList<>();
         bankAccountRepository.findAll().forEach(bankAccount -> {
